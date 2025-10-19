@@ -5,52 +5,56 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex flex-col md:flex-row items-center justify-between px-10 bg-black text-white">
-      {/* Left Section - Text */}
-      <motion.div
-        initial={{ opacity: 0, x: -60 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1 }}
-        className="max-w-xl"
-      >
-        <h1 className="text-5xl md:text-6xl font-extrabold leading-tight">
-          Hi, I'm <span className="text-green-400">Om 👋</span>
-        </h1>
-        <p className="mt-4 text-lg text-gray-300">
-          Uttarkashi, Uttarakhand |{" "}
-          <span className="font-semibold">Full Stack Engineer</span>
-        </p>
-        <p className="mt-6 text-gray-400">
-          I love building modern web applications and solving challenging problems.
-          My passion lies in creating fast, user-focused digital experiences.
-        </p>
+    <section id="hero" className="flex flex-col min-h-[10vh] px-6 pt-12 sm:pt-24 pb-4 sm:pb-6 bg-black text-white font-mono transition-all">
+      <div className="mx-auto w-full max-w-4xl space-y-8">
+        {/* Top Section: Greeting and Profile Image */}
+        <div className="flex flex-col sm:flex-row justify-between gap-6 sm:gap-10 items-center">
+          
+          {/* Left: Text */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="flex flex-col flex-1 space-y-4 text-center sm:text-left"
+          >
+            <div className="flex justify-center sm:justify-start items-center gap-2">
+              <span className="text-3xl sm:text-5xl xl:text-6xl font-bold tracking-tighter">
+                Hi, I'm Om
+              </span>
+              <span className="text-3xl sm:text-6xl">👋</span>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-2 sm:gap-4 text-gray-300">
+              <span className="text-base sm:text-lg font-semibold">
+                24, Bhilwara, Rajasthan | Full Stack Engineer
+              </span>
+            </div>
 
-        {/* Buttons */}
-        <div className="mt-6 flex flex-wrap gap-4">
-          <button className="px-6 py-3 bg-green-500 text-black font-semibold rounded-lg shadow hover:bg-green-400 transition">
-            View Projects
-          </button>
-          <button className="px-6 py-3 bg-gray-800 text-white rounded-lg shadow hover:bg-gray-700 transition">
-            Contact Me
-          </button>
+            <div className="text-sm sm:text-lg text-gray-400">
+              I enjoy building web-related stuff and solving problems around it.
+              I also have hands-on experience working with Shopify Liquid & Shopify Ecosystem.
+            </div>
+
+            
+          </motion.div>
+
+          {/* Right: Profile Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            animate={{ opacity: 1, x: 0, y: [0, -10, 0] }}
+            transition={{ x: { duration: 1 }, y: { duration: 3, repeat: Infinity, ease: "easeInOut" } }}
+            className="mt-6 sm:mt-0 rounded-xl overflow-hidden shadow-lg w-48 h-48 sm:w-56 sm:h-56"
+          >
+            <Image
+              src="/om.png"
+              alt="Om  | Software Engineer"
+              width={224}
+              height={224}
+              className="rounded-xl object-cover"
+            />
+          </motion.div>
         </div>
-      </motion.div>
-
-      {/* Right Section - Profile Image */}
-      <motion.div
-        initial={{ opacity: 0, x: 60 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1 }}
-        className="mt-10 md:mt-0 rounded-2xl overflow-hidden shadow-lg"
-      >
-        <Image
-          src="/profile.jpg" // Apna image public folder me add karna
-          alt="Om's Photo"
-          width={250}
-          height={250}
-          className="rounded-2xl"
-        />
-      </motion.div>
+      </div>
     </section>
   );
 }

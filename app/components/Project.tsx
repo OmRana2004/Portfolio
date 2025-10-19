@@ -32,7 +32,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section className="bg-black text-white px-10 py-20 min-h-screen">
+    <section id="project" className="bg-black text-white px-10 py-20 min-h-screen">
       {/* Section Title */}
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
