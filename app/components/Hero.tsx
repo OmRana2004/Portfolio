@@ -25,14 +25,14 @@ export default function Hero() {
             </div>
             
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-2 sm:gap-4 text-gray-300">
-              <span className="text-base sm:text-lg font-semibold">
-                24, Bhilwara, Rajasthan | Full Stack Engineer
+              <span className="inline-block text-base sm:text-lg font-semibold tracking-tight">
+                Uttarkashi, Uttarakhand | Full Stack Engineer
               </span>
             </div>
 
             <div className="text-sm sm:text-lg text-gray-400">
-              I enjoy building web-related stuff and solving problems around it.
-              I also have hands-on experience working with Shopify Liquid & Shopify Ecosystem.
+              I’m a passionate Full Stack Engineer from Uttarkhand who loves
+        building modern, scalable, and aesthetic web applications.I focus on writing clean, optimized code and crafting smooth user experiences.
             </div>
 
             
