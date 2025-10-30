@@ -2,92 +2,123 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
+import { Card, CardContent } from "../components/ui/card";
+import { Globe, Github } from "lucide-react";
 
 const projects = [
   {
-    title: "Trekify - Adventure Booking Website",
-    description:
-      "A modern trekking website built with React and Node.js featuring trek listings, booking system, and admin dashboard.",
-    image: "/trekify.png",
-    tech: ["React", "Tailwind", "Node.js", "Express", "TypeScript"],
-    link: "#",
+    title: "Collabydraw",
+    description: "Hand-drawn look & feel • Collaborative • Secure",
+    video: "CollabyDraw.mp4",
+    liveUrl: "https://collabydraw.xyz",
+    codeUrl: "https://github.com/coderomm/CollabyDraw",
+    tech: ["Next.js", "Native WebSocket", "Canvas", "RoughJs", "Perfect-freehand", "E2EE"],
   },
   {
-    title: "Token Launchpad (Solana)",
-    description:
-      "A Web3 token launch platform with wallet integration, token minting, and smooth UI built using React & Solana Web3.js.",
-    image: "/launchpad.png",
-    tech: ["React", "Solana", "Tailwind", "Web3.js"],
-    link: "#",
-  },
-  {
-    title: "Real-Time Location Tracker",
-    description:
-      "A live tracking app using Leaflet & Socket.IO that updates user locations in real-time on an interactive map.",
-    image: "/tracker.png",
-    tech: ["Express", "Socket.IO", "Leaflet", "EJS"],
-    link: "#",
+    title: "Data Bolta Hai",
+    description: "Built a website integrating GST API and GST Taxpayer Search API.",
+    video: "/DBH.mp4",
+    liveUrl: "https://databoltahai.in",
+    codeUrl: "",
+    tech: ["HTML", "CSS", "BS5", "JavaScript", "Ajax", ".NET MVC5", "EF", "MSSQL"],
   },
 ];
 
 export default function Projects() {
   return (
-    <section id="project" className="bg-black text-white px-10 py-20 min-h-screen">
-      {/* Section Title */}
-      <motion.h2
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-4xl md:text-5xl font-bold text-center mb-12"
-      >
-        Featured Projects
-      </motion.h2>
+    <section id="projects" className="py-20 bg-black text-white">
+      <div className="max-w-6xl mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="space-y-4 mb-10 text-center"
+        >
+          <h2 className="text-3xl md:text-4xl font-bold font-bricolage-grotesque">
+            Proof of Work
+          </h2>
+          <p className="text-sm md:text-lg text-zinc-400 font-inter max-w-3xl mx-auto">
+            A collection of my work spanning from blockchain applications to full-stack projects, both personal and professional.
+          </p>
+        </motion.div>
 
-      {/* Projects Grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {projects.map((project, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: i * 0.1 }}
-            whileHover={{ scale: 1.03 }}
-            className="bg-gray-900 rounded-xl overflow-hidden border border-gray-800 hover:border-green-500 transition-all"
-          >
-            <div className="relative w-full h-48">
-              <Image
-                src={project.image}
-                alt={project.title}
-                layout="fill"
-                objectFit="cover"
-              />
-            </div>
-            <div className="p-6">
-              <h3 className="text-2xl font-semibold mb-3">{project.title}</h3>
-              <p className="text-gray-400 text-sm mb-4">{project.description}</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.15, duration: 0.5 }}
+              className="relative group"
+            >
+              <Card className="border border-zinc-700 rounded-[12px] overflow-hidden bg-zinc-900 transition-all duration-300 hover:shadow-xl hover:border-zinc-500">
+                <CardContent className="relative p-0 flex flex-col h-full">
+                  {/* Video Preview */}
+                  <div className="relative">
+                    <video
+                      src={project.video}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="h-48 w-full object-cover object-top"
+                    />
+                  </div>
 
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tech.map((tech, index) => (
-                  <span
-                    key={index}
-                    className="text-xs px-3 py-1 bg-gray-800 rounded-full border border-gray-700"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
+                  {/* Info */}
+                  <div className="flex flex-col p-4 flex-1">
+                    <h3 className="text-lg font-semibold">{project.title}</h3>
+                    <p className="text-sm text-zinc-400 mt-1">{project.description}</p>
 
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-green-400 hover:text-green-300 text-sm font-semibold"
-              >
-                View Project →
-              </a>
-            </div>
-          </motion.div>
-        ))}
+                    {/* Tech stack */}
+                    <div className="flex flex-wrap gap-2 mt-3">
+                      {project.tech.map((tech, i) => (
+                        <span
+                          key={i}
+                          className="text-xs border border-zinc-700 bg-zinc-800 px-2 py-1 rounded-md text-zinc-300 hover:bg-zinc-700 transition"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Links */}
+                    <div className="flex gap-2 mt-4">
+                      {project.liveUrl && (
+                        <Link
+                          href={project.liveUrl}
+                          target="_blank"
+                          className="flex items-center gap-2 bg-blue-600 text-white text-xs px-3 py-1.5 rounded-md hover:bg-blue-700 transition"
+                        >
+                          <Globe className="w-3.5 h-3.5" /> Live URL
+                        </Link>
+                      )}
+                      {project.codeUrl && (
+                        <Link
+                          href={project.codeUrl}
+                          target="_blank"
+                          className="flex items-center gap-2 bg-zinc-700 text-white text-xs px-3 py-1.5 rounded-md hover:bg-zinc-600 transition"
+                        >
+                          <Github className="w-3.5 h-3.5" /> Codebase
+                        </Link>
+                      )}
+                    </div>
+                  </div>
+                </CardContent>
+
+                {/* Hover gradient overlay */}
+                <div className="absolute inset-0 rounded-[inherit] opacity-0 group-hover:opacity-100 transition duration-500 pointer-events-none"
+                  style={{
+                    background:
+                      "radial-gradient(200px circle at -200px -200px, #9E7AFF, #FE8BBB, transparent 100%)",
+                    opacity: 0.15,
+                  }}
+                ></div>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
