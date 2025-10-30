@@ -31,7 +31,7 @@ export default function Hero() {
             </div>
 
             <div className="text-sm sm:text-lg text-gray-400">
-              I’m a passionate Full Stack Engineer from Uttarkhand who loves
+              I'm a passionate Full Stack Engineer from Uttarkhand who loves
         building modern, scalable, and aesthetic web applications.I focus on writing clean, optimized code and crafting smooth user experiences.
             </div>
 

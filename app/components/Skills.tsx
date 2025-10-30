@@ -43,8 +43,9 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="flex flex-col items-center text-center py-14 px-4 bg-black"
+      className="py-10 bg-black text-white"
     >
+      <div className="max-w-5xl mx-auto px-6">
       {/* Title */}
       <motion.h2
         initial={{ opacity: 0, y: 10 }}
@@ -103,6 +104,7 @@ export default function Skills() {
           </motion.div>
         ))}
       </motion.div>
+      </div>
     </section>
   );
 }

@@ -1,61 +1,131 @@
 "use client";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "../ui/card";
-
 import Image from "next/image";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 const courses = [
   {
-    title: "Full Stack + DevOps + Web3",
+    title: "Full Stack + DevOps",
     org: "100xDevs",
     date: "May 2024 - In progress",
     logo: "/logos/100xdevs.png",
+    description:
+      "Comprehensive full-stack development and DevOps course covering advanced topics.",
+    topics: [
+      "TypeScript",
+      "Next.js",
+      "Serverless",
+      "Cloudflare",
+      "Kubernetes",
+      "Socket.io",
+      "WebRTC",
+      "tRPC",
+      "Redis",
+      "Docker",
+      "PostgreSQL",
+      "Prisma",
+      "OpenAPI",
+      "DDoS prevention",
+      "Rate limiting",
+      "PubSub",
+      "Kafka",
+    ],
   },
-  
 ];
 
 export default function Coursework() {
+  const [expanded, setExpanded] = useState<number | null>(null);
+
   return (
-    <section className="py-20 bg-black text-white">
+    <section className="py-10 bg-black text-white">
       <div className="max-w-5xl mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-3xl font-bold mb-10"
+          className="text-4xl md:text-4xl font-bold mb-10"
         >
           Coursework
         </motion.h2>
 
         <div className="space-y-6">
-          {courses.map((course, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
-            >
-              <Card className="bg-gradient-to-r from-zinc-900 via-zinc-800 to-zinc-900 hover:from-zinc-800 hover:to-zinc-700 transition-all duration-300 border border-zinc-700 hover:border-zinc-500 rounded-2xl shadow-md hover:shadow-lg hover:shadow-zinc-600/20">
-                <CardContent className="flex items-center justify-between p-6">
-                  <div className="flex items-center gap-4">
-                    <div className="relative w-16 h-16 rounded-full overflow-hidden border border-zinc-600">
-                      <Image
-                        src={course.logo}
-                        alt={course.title}
-                        fill
-                        className="object-cover"
-                      />
+          {courses.map((course, index) => {
+            const isOpen = expanded === index;
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.15, duration: 0.5 }}
+              >
+                <Card className="bg-black border-black">
+                  <CardContent className="p-4 bg-black border border-black
+                  ">
+                    {/* Top section */}
+                    <div
+                      className="flex items-center justify-between cursor-pointer"
+                      onClick={() =>
+                        setExpanded(isOpen ? null : index)
+                      }
+                    >
+                      <div className="flex items-center gap-4">
+                        <div className="relative w-14 h-14 rounded-full overflow-hidden border border-zinc-600">
+                          <Image
+                            src={course.logo}
+                            alt={course.title}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                        <div>
+                          <h3 className="text-lg font-semibold">{course.title}</h3>
+                          <p className="text-sm text-zinc-400">{course.org}</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <p className="text-sm text-zinc-500">{course.date}</p>
+                        {isOpen ? (
+                          <ChevronUp className="w-5 h-5 text-zinc-400" />
+                        ) : (
+                          <ChevronDown className="w-5 h-5 text-zinc-400" />
+                        )}
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-lg font-semibold">{course.title}</h3>
-                      <p className="text-sm text-zinc-400">{course.org}</p>
-                    </div>
-                  </div>
-                  <p className="text-sm text-zinc-500">{course.date}</p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
+
+                    {/* Expandable Section */}
+                    <AnimatePresence>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: "auto" }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="overflow-hidden"
+                        >
+                          <p className="text-sm text-zinc-300 mt-4 leading-relaxed">
+                            {course.description}
+                          </p>
+
+                          <div className="flex flex-wrap gap-2 mt-4">
+                            {course.topics.map((topic, i) => (
+                              <span
+                                key={i}
+                                className="text-xs bg-zinc-800 border border-zinc-700 px-2 py-1 rounded-md text-zinc-300 hover:bg-zinc-700 transition-colors"
+                              >
+                                {topic}
+                              </span>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
