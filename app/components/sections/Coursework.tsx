@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "../ui/card";
 import Image from "next/image";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import devs from "../../../public/devs.jpg";
 
 const courses = [
   {
@@ -73,7 +74,7 @@ export default function Coursework() {
                       <div className="flex items-center gap-4">
                         <div className="relative w-14 h-14 rounded-full overflow-hidden border border-zinc-600">
                           <Image
-                            src={course.logo}
+                            src={devs}
                             alt={course.title}
                             fill
                             className="object-cover"
@@ -87,9 +88,9 @@ export default function Coursework() {
                       <div className="flex items-center gap-3">
                         <p className="text-sm text-zinc-500">{course.date}</p>
                         {isOpen ? (
-                          <ChevronUp className="w-5 h-5 text-zinc-400" />
+                          <ChevronUp className="w-5 h-5 text-white" />
                         ) : (
-                          <ChevronDown className="w-5 h-5 text-zinc-400" />
+                          <ChevronDown className="w-5 h-5 text-white" />
                         )}
                       </div>
                     </div>
@@ -104,7 +105,7 @@ export default function Coursework() {
                           transition={{ duration: 0.3 }}
                           className="overflow-hidden"
                         >
-                          <p className="text-sm text-zinc-300 mt-4 leading-relaxed">
+                          <p className="text-sm size-max text-white mt-2 mx-20 leading-relaxed">
                             {course.description}
                           </p>
 
@@ -112,7 +113,7 @@ export default function Coursework() {
                             {course.topics.map((topic, i) => (
                               <span
                                 key={i}
-                                className="text-xs bg-zinc-800 border border-zinc-700 px-2 py-1 rounded-md text-zinc-300 hover:bg-zinc-700 transition-colors"
+                                className="text-xs bg-white border border-white px-2 py-0 rounded-sm text-black"
                               >
                                 {topic}
                               </span>
