@@ -27,18 +27,18 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 bg-black text-white">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="projects" className="py-6 bg-black text-white">
+      <div className="max-w-5xl mx-auto px-6">
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="space-y-4 mb-10 text-center"
+          className="space-y-4 mb-10 text-left"
         >
           <h2 className="text-3xl md:text-4xl font-bold font-bricolage-grotesque">
             Proof of Work
           </h2>
-          <p className="text-sm md:text-lg text-zinc-400 font-inter max-w-3xl mx-auto">
+          <p className="text-md md:text-lg text-white font-inter max-w-3xl mx-auto">
             A collection of my work spanning from blockchain applications to full-stack projects, both personal and professional.
           </p>
         </motion.div>
@@ -69,14 +69,14 @@ export default function Projects() {
                   {/* Info */}
                   <div className="flex flex-col p-4 flex-1">
                     <h3 className="text-lg font-semibold">{project.title}</h3>
-                    <p className="text-sm text-zinc-400 mt-1">{project.description}</p>
+                    <p className="max-w-full text-pretty text-xs text-white mt-1">{project.description}</p>
 
                     {/* Tech stack */}
                     <div className="flex flex-wrap gap-2 mt-3">
                       {project.tech.map((tech, i) => (
                         <span
                           key={i}
-                          className="text-xs border border-zinc-700 bg-zinc-800 px-2 py-1 rounded-md text-zinc-300 hover:bg-zinc-700 transition"
+                          className="text-xs border border-zinc-700 bg-black px-2 py-1 rounded-md text-white hover:bg-zinc-800 transition"
                         >
                           {tech}
                         </span>
@@ -89,7 +89,7 @@ export default function Projects() {
                         <Link
                           href={project.liveUrl}
                           target="_blank"
-                          className="flex items-center gap-2 bg-blue-600 text-white text-xs px-3 py-1.5 rounded-md hover:bg-blue-700 transition"
+                          className="flex items-center gap-2 bg-white text-black text-xs px-2 py-1.5 rounded-md hover:bg-blue-200 transition"
                         >
                           <Globe className="w-3.5 h-3.5" /> Live URL
                         </Link>
@@ -98,7 +98,7 @@ export default function Projects() {
                         <Link
                           href={project.codeUrl}
                           target="_blank"
-                          className="flex items-center gap-2 bg-zinc-700 text-white text-xs px-3 py-1.5 rounded-md hover:bg-zinc-600 transition"
+                          className="flex items-center gap-2 bg-white text-black text-xs px-2 py-1.5 rounded-md hover:bg-blue-200 transition"
                         >
                           <Github className="w-3.5 h-3.5" /> Codebase
                         </Link>

@@ -10,7 +10,7 @@ const courses = [
   {
     title: "Full Stack + DevOps",
     org: "100xDevs",
-    date: "May 2024 - In progress",
+    date: "Oct 2024 - In progress",
     logo: "/logos/100xdevs.png",
     description:
       "Comprehensive full-stack development and DevOps course covering advanced topics.",
@@ -40,7 +40,7 @@ export default function Coursework() {
   const [expanded, setExpanded] = useState<number | null>(null);
 
   return (
-    <section className="py-10 bg-black text-white">
+    <section className="py-6 bg-black text-white">
       <div className="max-w-5xl mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
@@ -61,7 +61,7 @@ export default function Coursework() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.15, duration: 0.5 }}
               >
-                <Card className="bg-black border-black">
+                <Card className="bg-black border-black ">
                   <CardContent className="p-4 bg-black border border-black
                   ">
                     {/* Top section */}
@@ -72,7 +72,7 @@ export default function Coursework() {
                       }
                     >
                       <div className="flex items-center gap-4">
-                        <div className="relative w-14 h-14 rounded-full overflow-hidden border border-zinc-600">
+                        <div className="relative w-14 h-14 rounded-full overflow-hidden border border-zinc-700">
                           <Image
                             src={devs}
                             alt={course.title}
@@ -82,11 +82,11 @@ export default function Coursework() {
                         </div>
                         <div>
                           <h3 className="text-lg font-semibold">{course.title}</h3>
-                          <p className="text-sm text-zinc-400">{course.org}</p>
+                          <p className="text-sm text-white">{course.org}</p>
                         </div>
                       </div>
                       <div className="flex items-center gap-3">
-                        <p className="text-sm text-zinc-500">{course.date}</p>
+                        <p className="text-sm text-white">{course.date}</p>
                         {isOpen ? (
                           <ChevronUp className="w-5 h-5 text-white" />
                         ) : (
