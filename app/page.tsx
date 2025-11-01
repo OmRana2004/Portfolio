@@ -1,13 +1,14 @@
 "use client";
 
 import React, { useState } from "react";
-import Intro from "./components/Intro"
-import Hero from "./components/Hero";
-import SocialSection from "./components/social/SocialSection";
-import Skills from "./components/Skills";
+import Intro from "./components/sections/Intro"
+import Hero from "./components/sections/Hero";
+import SocialSection from "./components/sections/SocialSection";
+import Skills from "./components/sections/Skills";
 import Coursework from "./components/sections/Coursework";
-import Project from "./components/Project";
-import Footer from "./components/Footer";
+import Project from "./components/sections/Project";
+// import Footer from "./components/Footer";
+import Contact from "./components/sections/Contact";
 
 export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
@@ -24,7 +25,8 @@ export default function Home() {
       <Skills />
       <Coursework />
       <Project />
-      <Footer/>
+      <Contact />
+      {/* <Footer /> */}
     </main>
   );
 }
