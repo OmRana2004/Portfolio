@@ -48,8 +48,8 @@ export default function Hero() {
             <Image
               src="/om.png"
               alt="Om  | Software Engineer"
-              width={224}
-              height={224}
+              width={200}
+              height={200}
               className="rounded-xl object-cover"
             />
           </motion.div>
