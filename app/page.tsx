@@ -9,6 +9,8 @@ import Coursework from "./components/sections/Coursework";
 import Project from "./components/sections/Project";
 // import Footer from "./components/Footer";
 import Contact from "./components/sections/Contact";
+import BottomNav from "./components/sections/BottomNav";
+
 
 export default function Home() {
   const [showIntro, setShowIntro] = useState(true);
@@ -26,7 +28,7 @@ export default function Home() {
       <Coursework />
       <Project />
       <Contact />
-      {/* <Footer /> */}
+      <BottomNav />
     </main>
   );
 }

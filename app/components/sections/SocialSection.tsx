@@ -10,7 +10,7 @@ export default function SocialSection() {
   className="flex flex-col md:flex-row items-center justify-center gap-2 p-5"
   style={{ opacity: 1, filter: "blur(0px)", transform: "translateY(0px)" }}
 >
-  <a href="#project">
+  <a href="#projects">
     <button className="group bg-white hover:bg-gray-100 text-black font-semibold px-6 py-3 rounded shadow flex items-center gap-2 transition-all duration-300 w-auto">
   <span>View Projects</span>
   <svg
