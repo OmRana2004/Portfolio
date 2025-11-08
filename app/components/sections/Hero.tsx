@@ -19,7 +19,7 @@ export default function Hero() {
           >
             <div className="flex justify-center sm:justify-start items-center gap-2">
               <span className="text-3xl sm:text-5xl xl:text-6xl font-bold tracking-tighter">
-                Hi, I'm Om
+                Hi, I&apos;m Om
               </span>
               <span className="text-3xl sm:text-6xl">👋</span>
             </div>
@@ -31,8 +31,7 @@ export default function Hero() {
             </div>
 
             <div className="text-sm sm:text-lg text-gray-400">
-              I'm a passionate Full Stack Engineer from Uttarkhand who loves
-        building modern, scalable, and aesthetic web applications.I focus on writing clean, optimized code and crafting smooth user experiences.
+              I&apos;m a passionate Full Stack Engineer from Uttarkhand who loves building modern, scalable, and aesthetic web applications. I focus on writing clean, optimized code and crafting smooth user experiences.
             </div>
 
             
