@@ -10,7 +10,7 @@ const projects = [
     title: "Collabydraw",
     description: "Hand-drawn look & feel • Collaborative • Secure",
     video: "CollabyDraw.mp4",
-    liveUrl: "https://collabydraw.xyz",
+    liveUrl: "https://omdraw.vercel.app/",
     codeUrl: "https://github.com/coderomm/CollabyDraw",
     tech: ["Next.js", "WebSocket", "Canvas", "RoughJs", "Perfect-freehand", "E2EE"],
   },
