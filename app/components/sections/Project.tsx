@@ -11,16 +11,16 @@ const projects = [
     description: "Hand-drawn look & feel • Collaborative • Secure",
     video: "CollabyDraw.mp4",
     liveUrl: "https://omdraw.vercel.app/",
-    codeUrl: "https://github.com/coderomm/CollabyDraw",
-    tech: ["Next.js", "WebSocket", "Canvas", "RoughJs", "Perfect-freehand", "E2EE"],
+    codeUrl: "https://github.com/OmRana2004/OmDraw",
+    tech: ["Next.js", "WebSocket", "Canvas", "Perfect-freehand", "E2EE"],
   },
   {
-    title: "Data Bolta Hai",
-    description: "Built a website integrating GST API and GST Taxpayer Search API.",
+    title: "Trekify",
+    description: "Trekify is a full-featured, full-stack trekking and adventure tour web application inspired by professional sites like Himalayan Hikers. Built with modern technologies like React, TypeScript, Node.js, and Express, it offers users a rich and dynamic experience for exploring, discovering, and booking treks. It also includes an admin dashboard.",
     video: "/DBH.mp4",
-    liveUrl: "https://databoltahai.in",
-    codeUrl: "",
-    tech: ["HTML", "CSS", "Bootstrap", "JavaScript", "Ajax", ".NET MVC5", "MSSQL"],
+    liveUrl: "https://trekify-official.vercel.app/",
+    codeUrl: "https://github.com/OmRana2004/Trekify",
+    tech: ["React", "Tailwind CSS", "TypeScript", "Express", "MongoDb"],
   },
 ];
 
