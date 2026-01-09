@@ -16,12 +16,20 @@ const projects = [
   },
   {
     title: "Trekify",
+<<<<<<< HEAD
     description:
       "Trekify is a full-featured, full-stack trekking and adventure tour web application inspired by professional sites like Himalayan Hikers.",
     video: "/Trekify.mp4",
     liveUrl: "https://trekify-official.vercel.app/",
     codeUrl: "https://github.com/OmRana2004/Trekify",
     tech: ["React", "Tailwind CSS", "TypeScript",  "MongoDb"],
+=======
+    description: "Trekify is a full-featured, full-stack trekking and adventure tour web application inspired by professional sites like Himalayan Hikers. Built with modern technologies like React, TypeScript, Node.js, and Express, it offers users a rich and dynamic experience for exploring, discovering, and booking treks. It also includes an admin dashboard.",
+    video: "/DBH.mp4",
+    liveUrl: "https://trekify-official.vercel.app/",
+    codeUrl: "https://github.com/OmRana2004/Trekify",
+    tech: ["React", "Tailwind CSS", "TypeScript", "Express", "MongoDb"],
+>>>>>>> 4c01a6f0bc84e36253c7954f37f5301cd1007074
   },
 ];
 
