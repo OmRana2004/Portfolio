@@ -54,7 +54,7 @@ export default function BottomNav() {
 
         <NavIcon
           label="Resume"
-          href="https://drive.google.com/file/d/1TciL7LjnAvQs9tettaCvg5_MGywQlsrf/view?usp=sharing"
+          href="https://drive.google.com/file/d/1FR1WZu1Qq6Xunm37eSCgfqzgnUPub9fi/view?usp=sharing"
           icon={<FileText className="size-5" />}
         />
 
