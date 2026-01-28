@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, easeInOut } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   FaHtml5,
   FaCss3Alt,
@@ -41,69 +41,56 @@ const skills = [
 
 export default function Skills() {
   return (
-    <section
-      id="skills"
-      className="py-6 bg-black text-white"
-    >
-      <div className="max-w-5xl mx-auto px-6">
-      {/* Title */}
-      <motion.h2
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="text-3xl sm:text-4xl font-bold text-white mb-8 font-bricolage-grotesque"
-      >
-        Tech Stack
-      </motion.h2>
+    <section id="skills" className="bg-black py-16 text-white">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+        
+        {/* Heading */}
+        <motion.h2
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="mb-10 text-3xl font-bold md:text-4xl"
+        >
+          Tech Stack
+        </motion.h2>
 
-      {/* Grid */}
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        variants={{
-          hidden: { opacity: 0, y: 20 },
-          visible: {
-            opacity: 1,
-            y: 0,
-            transition: { staggerChildren: 0.08 },
-          },
-        }}
-        className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-5 lg:grid-cols-6 gap-5 sm:gap-6"
-      >
-        {skills.map((skill, i) => (
-          <motion.div
-            key={i}
-            variants={{
-              hidden: { opacity: 0, y: 15 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            whileHover={{
-              scale: 1.08,
-              boxShadow: "0 0 18px rgba(255,255,255,0.1)",
-            }}
-            transition={{ duration: 0.25, ease: easeInOut }}
-            className="flex flex-col items-center justify-center bg-gray-900/50 border border-gray-800 rounded-xl px-4 py-4 hover:bg-gray-800/70 transition-all backdrop-blur-sm"
-          >
+        {/* Grid */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: { staggerChildren: 0.06 },
+            },
+          }}
+          className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 sm:gap-6"
+        >
+          {skills.map((skill, i) => (
             <motion.div
-              animate={{ y: [0, -5, 0] }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                repeatType: "reverse",
-                ease: easeInOut,
+              key={i}
+              variants={{
+                hidden: { opacity: 0, y: 12 },
+                visible: { opacity: 1, y: 0 },
               }}
-              className="text-3xl sm:text-4xl mb-2"
+              whileHover={{
+                y: -4,
+                boxShadow: "0 10px 30px rgba(0,0,0,0.4)",
+              }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="group flex flex-col items-center justify-center rounded-2xl border border-zinc-800 bg-zinc-900/60 px-4 py-5 backdrop-blur transition hover:border-zinc-600"
             >
-              {skill.icon}
+              <div className="mb-2 text-3xl sm:text-4xl transition-transform group-hover:scale-110">
+                {skill.icon}
+              </div>
+              <p className="text-xs sm:text-sm font-medium text-zinc-300">
+                {skill.name}
+              </p>
             </motion.div>
-            <p className="text-gray-300 text-xs sm:text-sm font-medium">
-              {skill.name}
-            </p>
-          </motion.div>
-        ))}
-      </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

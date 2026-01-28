@@ -40,13 +40,13 @@ export default function Coursework() {
   const [expanded, setExpanded] = useState<number | null>(null);
 
   return (
-    <section className="py-6 bg-black text-white">
-      <div className="max-w-5xl mx-auto px-6">
+    <section className="bg-black py-10 text-white">
+      <div className="mx-auto max-w-5xl px-6">
         <motion.h2
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-4xl md:text-4xl font-bold mb-10"
+          className="mb-10 text-3xl font-bold md:text-4xl"
         >
           Coursework
         </motion.h2>
@@ -54,25 +54,23 @@ export default function Coursework() {
         <div className="space-y-6">
           {courses.map((course, index) => {
             const isOpen = expanded === index;
+
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.15, duration: 0.5 }}
+                transition={{ duration: 0.4 }}
+                onMouseEnter={() => setExpanded(index)}
+                onMouseLeave={() => setExpanded(null)}
               >
-                <Card className="bg-black border-black ">
-                  <CardContent className="p-4 bg-black border border-black
-                  ">
-                    {/* Top section */}
-                    <div
-                      className="flex items-center justify-between cursor-pointer"
-                      onClick={() =>
-                        setExpanded(isOpen ? null : index)
-                      }
-                    >
+                <Card className="border border-zinc-800 bg-black transition hover:border-zinc-600">
+                  <CardContent className="p-4">
+                    
+                    {/* TOP ROW */}
+                    <div className="flex items-center justify-between">
                       <div className="flex items-center gap-4">
-                        <div className="relative w-14 h-14 rounded-full overflow-hidden border border-zinc-700">
+                        <div className="relative h-14 w-14 overflow-hidden rounded-full border border-zinc-700">
                           <Image
                             src={devs}
                             alt={course.title}
@@ -81,39 +79,44 @@ export default function Coursework() {
                           />
                         </div>
                         <div>
-                          <h3 className="text-lg font-semibold">{course.title}</h3>
-                          <p className="text-sm text-white">{course.org}</p>
+                          <h3 className="text-lg font-semibold">
+                            {course.title}
+                          </h3>
+                          <p className="text-sm text-zinc-400">
+                            {course.org}
+                          </p>
                         </div>
                       </div>
-                      <div className="flex items-center gap-3">
-                        <p className="text-sm text-white">{course.date}</p>
+
+                      <div className="flex items-center gap-3 text-sm text-zinc-400">
+                        <span>{course.date}</span>
                         {isOpen ? (
-                          <ChevronUp className="w-5 h-5 text-white" />
+                          <ChevronUp className="h-5 w-5" />
                         ) : (
-                          <ChevronDown className="w-5 h-5 text-white" />
+                          <ChevronDown className="h-5 w-5" />
                         )}
                       </div>
                     </div>
 
-                    {/* Expandable Section */}
+                    {/* EXPAND ON HOVER */}
                     <AnimatePresence>
                       {isOpen && (
                         <motion.div
                           initial={{ opacity: 0, height: 0 }}
                           animate={{ opacity: 1, height: "auto" }}
                           exit={{ opacity: 0, height: 0 }}
-                          transition={{ duration: 0.3 }}
+                          transition={{ duration: 0.25, ease: "easeOut" }}
                           className="overflow-hidden"
                         >
-                          <p className="text-sm size-max text-white mt-2 mx-20 leading-relaxed">
+                          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-zinc-300">
                             {course.description}
                           </p>
 
-                          <div className="flex flex-wrap gap-2 mt-4">
+                          <div className="mt-4 flex flex-wrap gap-2">
                             {course.topics.map((topic, i) => (
                               <span
                                 key={i}
-                                className="text-xs bg-white border border-white px-2 py-0 rounded-sm text-black"
+                                className="rounded-md border border-white bg-white px-2 py-0.5 text-xs text-black"
                               >
                                 {topic}
                               </span>
