@@ -21,76 +21,99 @@ import {
   SiRedux,
 } from "react-icons/si";
 
+/* -------------------- SKILLS DATA -------------------- */
 const skills = [
-  { icon: <FaHtml5 className="text-orange-500" />, name: "HTML" },
-  { icon: <FaCss3Alt className="text-blue-500" />, name: "CSS" },
-  { icon: <SiTailwindcss className="text-cyan-400" />, name: "Tailwind" },
-  { icon: <FaJs className="text-yellow-400" />, name: "JavaScript" },
-  { icon: <SiTypescript className="text-blue-400" />, name: "TypeScript" },
-  { icon: <FaReact className="text-cyan-500" />, name: "React" },
-  { icon: <SiNextdotjs className="text-white" />, name: "Next.js" },
-  { icon: <FaNodeJs className="text-green-500" />, name: "Node.js" },
-  { icon: <SiExpress className="text-gray-300" />, name: "Express" },
-  { icon: <SiRedux className="text-purple-500" />, name: "Redux" },
-  { icon: <SiMongodb className="text-green-400" />, name: "MongoDB" },
-  { icon: <SiPostgresql className="text-sky-500" />, name: "PostgreSQL" },
-  { icon: <SiPrisma className="text-slate-300" />, name: "Prisma" },
-  { icon: <FaAws className="text-orange-400" />, name: "AWS" },
-  { icon: <FaDocker className="text-blue-400" />, name: "Docker" },
+  { icon: FaJs, name: "JavaScript", color: "#F7DF1E", shadow: "#C4A5FF" },
+  { icon: SiTypescript, name: "TypeScript", color: "#3178C6", shadow: "#C4A5FF" },
+  { icon: FaHtml5, name: "HTML", color: "#E34F26", shadow: "#C4A5FF" },
+  { icon: FaCss3Alt, name: "CSS", color: "#1572B6", shadow: "#C4A5FF" },
+
+  { icon: FaReact, name: "React", color: "#61DAFB", shadow: "#2EC4D6" },
+  { icon: SiTailwindcss, name: "Tailwind", color: "#38BDF8", shadow: "#2EC4D6" },
+  { icon: SiNextdotjs, name: "Next.js", color: "#FFFFFF", shadow: "#2EC4D6" },
+  { icon: SiRedux, name: "Redux", color: "#764ABC", shadow: "#2EC4D6" },
+
+  { icon: FaNodeJs, name: "Node.js", color: "#3C873A", shadow: "#3ED598" },
+  { icon: SiExpress, name: "Express", color: "#FFFFFF", shadow: "#3ED598" },
+
+  { icon: SiMongodb, name: "MongoDB", color: "#47A248", shadow: "#F2C078" },
+  { icon: SiPostgresql, name: "PostgreSQL", color: "#336791", shadow: "#F2C078" },
+  { icon: SiPrisma, name: "Prisma", color: "#FFFFFF", shadow: "#F2C078" },
+
+  { icon: FaAws, name: "AWS", color: "#FF9900", shadow: "#F2996E" },
+  { icon: FaDocker, name: "Docker", color: "#2496ED", shadow: "#F2996E" },
 ];
 
+/* -------------------- COMPONENT -------------------- */
 export default function Skills() {
   return (
     <section id="skills" className="bg-black py-16 text-white">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        
+      <div className="mx-auto max-w-6xl px-4">
+
         {/* Heading */}
         <motion.h2
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
-          className="mb-10 text-3xl font-bold md:text-4xl"
+          className="mb-12 text-3xl font-bold md:text-4xl"
         >
           Tech Stack
         </motion.h2>
 
-        {/* Grid */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={{
-            hidden: {},
-            visible: {
-              transition: { staggerChildren: 0.06 },
-            },
-          }}
-          className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 sm:gap-6"
-        >
-          {skills.map((skill, i) => (
-            <motion.div
-              key={i}
-              variants={{
-                hidden: { opacity: 0, y: 12 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              whileHover={{
-                y: -4,
-                boxShadow: "0 10px 30px rgba(0,0,0,0.4)",
-              }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
-              className="group flex flex-col items-center justify-center rounded-2xl border border-zinc-800 bg-zinc-900/60 px-4 py-5 backdrop-blur transition hover:border-zinc-600"
-            >
-              <div className="mb-2 text-3xl sm:text-4xl transition-transform group-hover:scale-110">
-                {skill.icon}
-              </div>
-              <p className="text-xs sm:text-sm font-medium text-zinc-300">
-                {skill.name}
-              </p>
-            </motion.div>
-          ))}
-        </motion.div>
+        {/* Skills */}
+        <div className="flex flex-wrap justify-center gap-6">
+          {skills.map((skill, i) => {
+            const Icon = skill.icon;
+
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: i * 0.03 }}
+                whileHover={{ y: -3 }}
+                whileTap={{ scale: 0.94 }} // 👇 press animation
+              >
+                <motion.div
+                  whileHover={{
+                    boxShadow: `0 6px 0 ${skill.shadow}, 0 0 18px ${skill.color}`,
+                  }}
+                  transition={{ duration: 0.25 }}
+                  className="
+                    flex items-center gap-3
+                    bg-black
+                    px-5 py-2.5
+                    border border-zinc-700
+                    rounded-md
+                    min-w-[150px]
+                    md:min-w-[180px]
+                    cursor-pointer
+                  "
+                >
+                  {/* ICON WITH GLOW */}
+                  <motion.span
+                    className="text-lg"
+                    style={{ color: skill.color }}
+                    whileHover={{
+                      scale: 1.15,
+                      filter: `drop-shadow(0 0 8px ${skill.color})`,
+                    }}
+                    transition={{ duration: 0.25 }}
+                  >
+                    <Icon />
+                  </motion.span>
+
+                  {/* LABEL */}
+                  <span className="text-sm md:text-base text-zinc-200 font-medium">
+                    {skill.name}
+                  </span>
+                </motion.div>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
