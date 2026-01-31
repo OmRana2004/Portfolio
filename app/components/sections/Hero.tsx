@@ -5,11 +5,13 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section id="hero" className="flex flex-col min-h-[10vh] px-6 pt-12 sm:pt-24 pb-4 sm:pb-6 bg-black text-white font-mono transition-all">
+    <section
+      id="hero"
+      className="flex flex-col min-h-[10vh] px-6 pt-12 sm:pt-24 pb-4 sm:pb-6 bg-black text-white font-mono transition-all"
+    >
       <div className="mx-auto w-full max-w-4xl space-y-8">
         {/* Top Section: Greeting and Profile Image */}
         <div className="flex flex-col sm:flex-row justify-between gap-6 sm:gap-10 items-center">
-          
           {/* Left: Text */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -23,7 +25,7 @@ export default function Hero() {
               </span>
               <span className="text-3xl sm:text-6xl">👋</span>
             </div>
-            
+
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-2 sm:gap-4 text-gray-300">
               <span className="inline-block text-base sm:text-lg font-semibold tracking-tight">
                 Uttarkashi, Uttarakhand | Full Stack Engineer
@@ -31,25 +33,29 @@ export default function Hero() {
             </div>
 
             <div className="text-sm sm:text-lg text-gray-400">
-              I&apos;m a passionate Full Stack Engineer from Uttarkhand who loves building modern, scalable, and aesthetic web applications. I focus on writing clean, optimized code and crafting smooth user experiences.
+              I&apos;m a passionate Full Stack Engineer from Uttarkhand who
+              loves building modern, scalable, and aesthetic web applications. I
+              focus on writing clean, optimized code and crafting smooth user
+              experiences.
             </div>
-
-            
           </motion.div>
 
           {/* Right: Profile Image */}
           <motion.div
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0, y: [0, -10, 0] }}
-            transition={{ x: { duration: 1 }, y: { duration: 3, repeat: Infinity, ease: "easeInOut" } }}
-            className="mt-6 sm:mt-0 rounded-xl overflow-hidden shadow-lg w-48 h-48 sm:w-56 sm:h-56"
+            transition={{
+              x: { duration: 1 },
+              y: { duration: 3, repeat: Infinity, ease: "easeInOut" },
+            }}
+            className="mt-6 sm:mt-0 w-48 h-48 sm:w-56 sm:h-56 rounded-full overflow-hidden shadow-lg flex-shrink-0"
           >
             <Image
               src="/om.png"
-              alt="Om  | Software Engineer"
-              width={200}
-              height={200}
-              className="rounded-xl object-cover"
+              alt="Om | Full Stack Engineer"
+              fill
+              className="object-cover rounded-full"
+              priority
             />
           </motion.div>
         </div>
