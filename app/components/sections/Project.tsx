@@ -8,15 +8,6 @@ import { Globe, Github } from "lucide-react";
 /* -------------------- PROJECT DATA -------------------- */
 const projects = [
   {
-    title: "OmPaY",
-    description:
-      "Production-ready fintech payment platform with secure cookie-based authentication, real-time balance updates, and transaction-safe money transfers.",
-    video: "/OmPaY.mp4",
-    liveUrl: "https://ompay.vercel.app/",
-    codeUrl: "https://github.com/OmRana2004/OmPay",
-    tech: ["Next.js", "TypeScript", "Tailwind CSS",  "Framer Motion", "Node.js", "Express","PostgreSQL", "Prisma", "JWT (HTTP-only Cookies)"],
-  },
-  {
     title: "Collabydraw",
     description:
       "Hand-drawn look & feel collaborative drawing app with real-time sync, security, and smooth canvas experience.",
@@ -24,6 +15,15 @@ const projects = [
     liveUrl: "https://omdraw.vercel.app/",
     codeUrl: "https://github.com/OmRana2004/OmDraw",
     tech: ["Next.js", "WebSocket", "Canvas", "Perfect-freehand", "E2EE"],
+  },
+  {
+    title: "OmPaY",
+    description:
+      "Production-ready fintech payment platform with secure cookie-based authentication, real-time balance updates, and transaction-safe money transfers.",
+    video: "/OmPaY.mp4",
+    liveUrl: "https://ompay.vercel.app/",
+    codeUrl: "https://github.com/OmRana2004/OmPay",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS",  "Framer Motion", "Node.js", "Express","PostgreSQL", "Prisma", "JWT (HTTP-only Cookies)"],
   },
   {
     title: "Trekify",
